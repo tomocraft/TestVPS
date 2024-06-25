@@ -18,5 +18,14 @@ jobs:
       - name: Log In To AnyDesk
         run: cmd /c show.bat
 
+      - name: Install ZeroTier
+        run: |
+          Invoke-WebRequest -Uri "https://download.zerotier.com/RELEASES/1.14.0/dist/ZeroTier One.msi" -OutFile "ZeroTierOne.msi"
+          msiexec /i ZeroTierOne.msi /quiet
+
+      - name: Join ZeroTier Network
+        run: |
+          .\ZeroTierOne\zerotier-cli join 60ee7c034ad44dbb
+
       - name: Time Counter
         run: python time.py
