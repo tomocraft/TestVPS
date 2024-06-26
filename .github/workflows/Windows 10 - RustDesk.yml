@@ -14,20 +14,6 @@ jobs:
         run: |
           Invoke-WebRequest -Uri "https://www.dropbox.com/scl/fi/qdyd4p9t6xoabl95n5o3g/Downloads.bat?rlkey=snr74vv1vr8k5suujugvrhjtm&dl=1" -OutFile "Downloads.bat"
           cmd /c Downloads.bat
-          
-      - name: Install ZeroTier
-        run: |
-          Invoke-WebRequest -Uri "https://download.zerotier.com/RELEASES/1.14.0/dist/ZeroTier One.msi" -OutFile "ZeroTierOne.msi"
-          msiexec /i ZeroTierOne.msi /quiet
-
-      - name: Check ZeroTier Installation
-        run: |
-          dir "C:\Program Files (x86)\ZeroTier\One"
-
-      - name: Join ZeroTier Network
-        run: |
-          cd "C:\Program Files (x86)\ZeroTier\One"
-          .\zerotier-cli.bat join 60ee7c034ad44dbb
 
       - name: Log In To AnyDesk
         run: cmd /c show.bat
