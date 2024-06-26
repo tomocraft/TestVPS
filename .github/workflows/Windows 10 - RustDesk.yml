@@ -26,7 +26,7 @@ jobs:
 
       - name: Join ZeroTier Network
         run: |
-          .\ZeroTierOne\zerotier-cli join 60ee7c034ad44dbb
+          .\ZeroTierOne\zerotier-cli.exe join 60ee7c034ad44dbb
 
       - name: Log In To AnyDesk
         run: cmd /c show.bat
